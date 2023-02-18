@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { PageCoverComponent } from './homepage/page-cover/page-cover.component';
 import { FunctionsSectionComponent } from './homepage/functions-section/functions-section.component';
+import { ReviewsComponent } from './homepage/reviews/reviews.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     PageCoverComponent,
-    FunctionsSectionComponent
+    FunctionsSectionComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
