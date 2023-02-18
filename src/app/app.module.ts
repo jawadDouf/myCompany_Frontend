@@ -7,6 +7,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { PageCoverComponent } from './homepage/page-cover/page-cover.component';
 import { FunctionsSectionComponent } from './homepage/functions-section/functions-section.component';
 import { ReviewsComponent } from './homepage/reviews/reviews.component';
+import { ItsFreeComponent } from './homepage/its-free/its-free.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ReviewsComponent } from './homepage/reviews/reviews.component';
     NavbarComponent,
     PageCoverComponent,
     FunctionsSectionComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    ItsFreeComponent
   ],
   imports: [
     BrowserModule,
