@@ -8,6 +8,7 @@ import { PageCoverComponent } from './homepage/page-cover/page-cover.component';
 import { FunctionsSectionComponent } from './homepage/functions-section/functions-section.component';
 import { ReviewsComponent } from './homepage/reviews/reviews.component';
 import { ItsFreeComponent } from './homepage/its-free/its-free.component';
+import { AuthentificationComponent } from './authentification/authentification.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ItsFreeComponent } from './homepage/its-free/its-free.component';
     PageCoverComponent,
     FunctionsSectionComponent,
     ReviewsComponent,
-    ItsFreeComponent
+    ItsFreeComponent,
+    AuthentificationComponent
   ],
   imports: [
     BrowserModule,
