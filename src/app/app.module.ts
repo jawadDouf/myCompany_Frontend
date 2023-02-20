@@ -9,6 +9,8 @@ import { FunctionsSectionComponent } from './homepage/functions-section/function
 import { ReviewsComponent } from './homepage/reviews/reviews.component';
 import { ItsFreeComponent } from './homepage/its-free/its-free.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AuthentificationComponent } from './authentification/authentification.c
     FunctionsSectionComponent,
     ReviewsComponent,
     ItsFreeComponent,
-    AuthentificationComponent
+    AuthentificationComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
