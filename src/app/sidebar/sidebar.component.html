@@ -1,10 +1,9 @@
 
     <div class=" flex flex-col w-64 bg-[#2563EB] h-full border-r">
       <div class="pl-9 flex justify-start items-center gap-x-2 h-14  border-b">
-        <img src="../../assets/icons8-windows-client-48.png" alt="company_logo" style="width: 50px;height: 50px;" />
-        <p class="text-white self-center">Windows</p>
+        <img src="../../assets/icons8-windows-client-48.png" alt="company_logo" style="width: 40px;height: 40px;" />
+        <p class="text-white self-center font-bold text-lg">Windows</p>
       </div>
-      
       <div class="overflow-y-auto overflow-x-hidden flex-grow">
         <ul class="flex flex-col py-4 space-y-1">
           <li class="px-5">
@@ -21,10 +20,12 @@
               
             </a>
           </li>
-          <li>
+          <li (click)="showUnitsDropDown()">
             <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
               <span class="inline-flex justify-center items-center ml-4">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                </svg>                  
               </span>
               <span class="ml-2 text-sm tracking-wide truncate">Units</span>
               <span class="ml-auto" aria-hidden="true">
@@ -40,6 +41,41 @@
                 </svg>
               </span>
             </a>
+          </li>
+          <li *ngIf="unitsDropDown">  
+               <div class="ml-12 flex flex-row gap-x-2 ">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  text-white ">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                    </svg>                      
+                </span>
+                <span>
+                    <p class="text-white text-sm py-1 ">Space</p>
+                </span>
+               </div> 
+               <div class="ml-12 flex flex-row gap-x-2 ">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  text-white ">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                    </svg>                      
+                </span>
+                <span>
+                    <p class="text-white text-sm py-1 ">Space</p>
+                </span>
+               </div> 
+               <div class="ml-12 flex flex-row gap-x-2 ">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  text-white ">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                    </svg>                      
+                </span>
+                <span>
+                    <p class="text-white text-sm py-1 ">Space</p>
+                </span>
+               </div> 
+               
+                
+              
           </li>
           <li>
             <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
