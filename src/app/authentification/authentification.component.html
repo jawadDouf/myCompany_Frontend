@@ -1,1 +1,5 @@
-<p>authentification works!</p>
+<!-- Container -->
+<div class="flex flex-wrap h-screen w-full content-center justify-center bg-blue-600">
+    <app-login *ngIf="!switcher" (sendEvent)="changeSwitcher()"></app-login>
+    <app-register *ngIf="switcher" (sendEvent)="changeSwitcher()"></app-register>
+</div>

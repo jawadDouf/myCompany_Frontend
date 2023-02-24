@@ -11,6 +11,8 @@ import { ItsFreeComponent } from './homepage/its-free/its-free.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { FormsModule } from '@angular/forms';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { RegisterComponent } from './register/register.component';
     ItsFreeComponent,
     AuthentificationComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

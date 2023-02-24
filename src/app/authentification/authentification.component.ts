@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AuthentificationComponent {
 
+
+  switcher:boolean=true;
+
+  changeSwitcher() {
+     this.switcher=!this.switcher;  
+  }
+  
 }

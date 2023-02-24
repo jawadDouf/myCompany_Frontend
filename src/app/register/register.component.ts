@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
 
+  firstName:string="";
+  lastName:string="";
+  companyName:string="";
+  profession:string="";
+  email:string = "";
+  password:string="";
+  
+  @Output()
+  sendEvent = new EventEmitter();
+  
+  
+  
+  onSwitch(){
+    this.sendEvent.emit();
+  }
 }
