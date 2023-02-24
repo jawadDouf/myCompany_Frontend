@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { DashboardNavComponent } from './dashboard-nav/dashboard-nav.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     AuthentificationComponent,
     LoginComponent,
     RegisterComponent,
-    SidebarComponent
+    SidebarComponent,
+    DashboardNavComponent
   ],
   imports: [
     BrowserModule,
