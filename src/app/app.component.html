@@ -1,4 +1,7 @@
-<div class="flex flex-row">
+<div class="flex flex-row  h-screen">
     <app-sidebar></app-sidebar>
-    <app-dashboard-nav class="w-full"></app-dashboard-nav>
+    <div class="flex flex-col w-full h-screen">
+        <app-dashboard-nav></app-dashboard-nav>
+        <app-dashboard-main-section ></app-dashboard-main-section>
+    </div>
 </div>

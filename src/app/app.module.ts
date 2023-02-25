@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardNavComponent } from './dashboard-nav/dashboard-nav.component';
+import { DashboardMainSectionComponent } from './dashboard-main-section/dashboard-main-section.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DashboardNavComponent } from './dashboard-nav/dashboard-nav.component';
     LoginComponent,
     RegisterComponent,
     SidebarComponent,
-    DashboardNavComponent
+    DashboardNavComponent,
+    DashboardMainSectionComponent
   ],
   imports: [
     BrowserModule,
