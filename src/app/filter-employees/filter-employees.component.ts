@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./filter-employees.component.css']
 })
 export class FilterEmployeesComponent {
-
+     
+    dropdownFilter:boolean=false;
+  
+    constructor(){}
+     
+    dropdown(){
+      this.dropdownFilter = !this.dropdownFilter
+    }
+    
 }
