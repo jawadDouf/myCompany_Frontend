@@ -17,6 +17,7 @@ import { DashboardNavComponent } from './dashboard-nav/dashboard-nav.component';
 import { DashboardMainSectionComponent } from './dashboard-main-section/dashboard-main-section.component';
 import { EmployeesTableComponent } from './employees-table/employees-table.component';
 import { FilterEmployeesComponent } from './filter-employees/filter-employees.component';
+import { ParagraphComponenetComponent } from './paragraph-componenet/paragraph-componenet.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FilterEmployeesComponent } from './filter-employees/filter-employees.co
     DashboardNavComponent,
     DashboardMainSectionComponent,
     EmployeesTableComponent,
-    FilterEmployeesComponent
+    FilterEmployeesComponent,
+    ParagraphComponenetComponent
   ],
   imports: [
     BrowserModule,
