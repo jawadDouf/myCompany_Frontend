@@ -16,6 +16,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardNavComponent } from './dashboard-nav/dashboard-nav.component';
 import { DashboardMainSectionComponent } from './dashboard-main-section/dashboard-main-section.component';
 import { EmployeesTableComponent } from './employees-table/employees-table.component';
+import { FilterEmployeesComponent } from './filter-employees/filter-employees.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EmployeesTableComponent } from './employees-table/employees-table.compo
     SidebarComponent,
     DashboardNavComponent,
     DashboardMainSectionComponent,
-    EmployeesTableComponent
+    EmployeesTableComponent,
+    FilterEmployeesComponent
   ],
   imports: [
     BrowserModule,
