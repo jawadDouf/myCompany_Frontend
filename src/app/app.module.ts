@@ -18,6 +18,8 @@ import { DashboardMainSectionComponent } from './dashboard-main-section/dashboar
 import { EmployeesTableComponent } from './employees-table/employees-table.component';
 import { FilterEmployeesComponent } from './filter-employees/filter-employees.component';
 import { ParagraphComponenetComponent } from './paragraph-componenet/paragraph-componenet.component';
+import { UnitsTableComponent } from './units-table/units-table.component';
+import { ChatUiComponent } from './chat-ui/chat-ui.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ParagraphComponenetComponent } from './paragraph-componenet/paragraph-c
     DashboardMainSectionComponent,
     EmployeesTableComponent,
     FilterEmployeesComponent,
-    ParagraphComponenetComponent
+    ParagraphComponenetComponent,
+    UnitsTableComponent,
+    ChatUiComponent
   ],
   imports: [
     BrowserModule,
