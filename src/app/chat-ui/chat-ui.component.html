@@ -1,5 +1,5 @@
                <!-- Right -->
-                    <div class="w-full border flex flex-col">
+                    <div class="w-full border h-auto flex flex-col">
                         <!-- Header -->
                         <div class="py-2 px-3 bg-grey-lighter flex flex-row justify-between items-center">
                             <div class="flex items-center">
@@ -18,7 +18,7 @@
                         </div>
 
                         <!-- Messages -->
-                        <div class="flex-1 overflow-auto" style="background-color: #DAD3CC">
+                        <div class="flex-1 overflow-auto" style="background-color: rgb(81, 81, 81)">
                             <div class="py-2 px-3">
                                 <div class="flex mb-2">
                                     <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
@@ -37,7 +37,7 @@
                                 <div class="flex justify-end mb-2">
                                     <div class="rounded py-2 px-3" style="background-color: #E2F7CB">
                                         <p class="text-sm mt-1">
-                                            Hi guys.
+                                            {{ receivedMessages[receivedMessages.length-1] }}
                                         </p>
                                         <p class="text-right text-xs text-grey-dark mt-1">
                                             12:45 pm
@@ -47,10 +47,10 @@
                             </div>
                         </div>
                         <!-- Input -->
-                        <div class="bg-grey-lighter px-4 py-4 flex items-center">
-                            <div class="flex-1 mx-4">
-                                <input class="w-full border rounded px-2 py-2" type="text"/>
-                            </div>
-                            
+                        <div class="bg-grey-lighter px-4 py-4 w-full">
+                            <div class="flex flex-row w-full">
+                                <input class="w-full border rounded px-2 py-2 mr-5" type="text"/>
+                                <button class="py-2 px-8 capitalize tracking-wide bg-gray-800 text-white font-medium rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700" (click)="onSendMessage()">Send</button>
+                            </div>   
                         </div>
                     </div>

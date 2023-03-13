@@ -20,6 +20,9 @@ import { FilterEmployeesComponent } from './filter-employees/filter-employees.co
 import { ParagraphComponenetComponent } from './paragraph-componenet/paragraph-componenet.component';
 import { UnitsTableComponent } from './units-table/units-table.component';
 import { ChatUiComponent } from './chat-ui/chat-ui.component';
+import { SocketsService } from './services/sockets.service';
+import { rxStompServiceFactory } from './jsModules/rx-stomp-service-factory';
+
 
 @NgModule({
   declarations: [
@@ -39,14 +42,19 @@ import { ChatUiComponent } from './chat-ui/chat-ui.component';
     FilterEmployeesComponent,
     ParagraphComponenetComponent,
     UnitsTableComponent,
-    ChatUiComponent
+    ChatUiComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: SocketsService,
+      useFactory: rxStompServiceFactory,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
