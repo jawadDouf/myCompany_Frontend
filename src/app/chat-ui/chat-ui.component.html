@@ -34,10 +34,10 @@
                                     </div>
                                 </div>
 
-                                <div class="flex justify-end mb-2">
-                                    <div class="rounded py-2 px-3" style="background-color: #E2F7CB">
-                                        <p class="text-sm mt-1">
-                                            {{ receivedMessages[receivedMessages.length-1] }}
+                                <div class="flex items-end mb-2 flex flex-col">
+                                    <div class="rounded py-2 px-3 mt-3" *ngFor="let m of receivedMessages" style="background-color: #E2F7CB">
+                                        <p class="text-sm mt-1 " >
+                                            {{ m.message }}
                                         </p>
                                         <p class="text-right text-xs text-grey-dark mt-1">
                                             12:45 pm
@@ -49,7 +49,7 @@
                         <!-- Input -->
                         <div class="bg-grey-lighter px-4 py-4 w-full">
                             <div class="flex flex-row w-full">
-                                <input class="w-full border rounded px-2 py-2 mr-5" type="text"/>
+                                <input class="w-full border rounded px-2 py-2 mr-5" type="text" name="messageInput" [(ngModel)]="messageBody" />
                                 <button class="py-2 px-8 capitalize tracking-wide bg-gray-800 text-white font-medium rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700" (click)="onSendMessage()">Send</button>
                             </div>   
                         </div>

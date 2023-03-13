@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Message } from 'stompjs';
+import { Message } from '@stomp/stompjs';
+import { TextMessage } from '../Models/TextMessage';
 import { SocketsService } from '../services/sockets.service';
 
 @Component({
@@ -9,7 +10,12 @@ import { SocketsService } from '../services/sockets.service';
 })
 export class ChatUiComponent {
   
-  receivedMessages: string[] = [];
+  receivedMessages: TextMessage[] = [];
+
+  textMessage!: TextMessage;
+
+  messageBody : string = "";
+  
   // @ts-ignore, to suppress warning related to being undefined
   private topicSubscription: Subscription;
 
@@ -18,8 +24,9 @@ export class ChatUiComponent {
   ngOnInit() {
     this.topicSubscription = this.rxStompService
       .watch('/topic/public')
-      .subscribe((message: Message) => {
-        this.receivedMessages.push(message.body);
+      .subscribe((tm2:Message) : void => {
+        this.textMessage = JSON.parse(tm2.body);
+        this.receivedMessages.push(this.textMessage);
       });
   }
 
@@ -28,7 +35,7 @@ export class ChatUiComponent {
   }
 
   onSendMessage() {
-    const message = `Message generated at ${new Date()}`;
-    this.rxStompService.publish({ destination: '/topic/public', body: message });
+    this.rxStompService.publish({ destination: '/topic/public',body:JSON.stringify({id:1,message:this.messageBody})});
+    this.messageBody = "";
   }
 }
