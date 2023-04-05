@@ -4,7 +4,7 @@ export class TextMessage{
 
     message:string | undefined;
 
-    // sender:number | undefined;
+    sender:number | undefined;
 
-    // chatGroup:number | undefined;
+    chatGroup:number | undefined;
 }
