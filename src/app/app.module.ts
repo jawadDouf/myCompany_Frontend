@@ -24,6 +24,7 @@ import { SocketsService } from './chatFeature/services/sockets.service';
 import { rxStompServiceFactory } from './chatFeature/tsModules/rx-stomp-service-factory';
 import { SidebarComponent } from './core/components/sidebar/sidebar.component';
 import { AuthentificationComponent } from './authFeature/pages/authentification/authentification.component';
+import { LandingPageComponent } from './homepage/landing-page/landing-page.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { AuthentificationComponent } from './authFeature/pages/authentification/
     ParagraphComponenetComponent,
     UnitsTableComponent,
     ChatUiComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
