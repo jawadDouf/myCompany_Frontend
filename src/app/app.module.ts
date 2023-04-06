@@ -17,7 +17,7 @@ import { DashboardNavComponent } from './dashboard-nav/dashboard-nav.component';
 import { DashboardMainSectionComponent } from './dashboard-main-section/dashboard-main-section.component';
 import { EmployeesTableComponent } from './employeesCrudFeature/components/employees-table/employees-table.component';
 import { FilterEmployeesComponent } from './employeesCrudFeature/components/filter-employees/filter-employees.component';
-import { ParagraphComponenetComponent } from './employeesCrudFeature/components/paragraph-componenet/paragraph-componenet.component';
+
 import { UnitsTableComponent } from './unitsCrudFeature/components/units-table/units-table.component';
 import { ChatUiComponent } from './chatFeature/components/chat-ui/chat-ui.component';
 import { SocketsService } from './chatFeature/services/sockets.service';
@@ -25,6 +25,9 @@ import { rxStompServiceFactory } from './chatFeature/tsModules/rx-stomp-service-
 import { SidebarComponent } from './core/components/sidebar/sidebar.component';
 import { AuthentificationComponent } from './authFeature/pages/authentification/authentification.component';
 import { LandingPageComponent } from './homepage/landing-page/landing-page.component';
+import { EmployeesPageComponent } from './employeesCrudFeature/pages/employees-page/employees-page.component';
+import { ParagraphComponenetComponent } from './employeesCrudFeature/components/paragraph-componenet/paragraph-componenet.component';
+import { UnitsPageComponent } from './unitsCrudFeature/pages/units-page/units-page.component';
 
 
 @NgModule({
@@ -47,6 +50,8 @@ import { LandingPageComponent } from './homepage/landing-page/landing-page.compo
     UnitsTableComponent,
     ChatUiComponent,
     LandingPageComponent,
+    EmployeesPageComponent,
+    UnitsPageComponent,
   ],
   imports: [
     BrowserModule,
