@@ -28,7 +28,7 @@ import { LandingPageComponent } from './homepage/landing-page/landing-page.compo
 import { EmployeesPageComponent } from './employeesCrudFeature/pages/employees-page/employees-page.component';
 import { ParagraphComponenetComponent } from './employeesCrudFeature/components/paragraph-componenet/paragraph-componenet.component';
 import { UnitsPageComponent } from './unitsCrudFeature/pages/units-page/units-page.component';
-
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -56,6 +56,7 @@ import { UnitsPageComponent } from './unitsCrudFeature/pages/units-page/units-pa
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [
