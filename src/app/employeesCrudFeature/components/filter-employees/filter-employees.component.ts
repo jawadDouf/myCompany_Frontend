@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Filter } from 'src/app/shared/models/Filter';
 
 @Component({
   selector: 'app-filter-employees',
@@ -8,6 +9,8 @@ import { Component } from '@angular/core';
 export class FilterEmployeesComponent {
      
     dropdownFilter:boolean=false;
+
+    @Input() filter! : Filter;
   
     constructor(){}
      

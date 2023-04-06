@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Filter } from 'src/app/shared/models/Filter';
 
 @Component({
   selector: 'app-units-page',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class UnitsPageComponent {
 
+  filter : Filter = {
+    categories: ["Unit Name","Type"],
+    valueToSearchFor: "",
+    valueToSortFrom: undefined
+  }  
+
+   constructor(){
+
+   }
 }
