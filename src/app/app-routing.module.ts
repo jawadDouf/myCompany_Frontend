@@ -16,7 +16,7 @@ const routes: Routes = [
       children: [
   //     { path: '', pathMatch: 'full', redirectTo: 'upload-document' },
         {
-          path: 'employees',
+          path: 'employees/:unit/:id',
           component: EmployeesPageComponent,
         },
         {
