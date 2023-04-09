@@ -20,7 +20,7 @@ const routes: Routes = [
           component: EmployeesPageComponent,
         },
         {
-          path: 'units',
+          path: 'units/:unit/:id',
           component: UnitsPageComponent,
         },
   //     {

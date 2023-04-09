@@ -1,24 +1,24 @@
 export class Employee {
 
-    firstName : string | undefined;
+    first_name : string | undefined;
 
-    lastName : string | undefined;
+    last_name : string | undefined;
 
     email : string | undefined;
 
-    profession : string | undefined;
+    professionName : string | undefined;
 
     pId : number | undefined;
 
-    space : string | undefined;
+    spaceName : string | undefined;
 
     sId : number | undefined;
 
-    departement : string | undefined;
+    departementName : string | undefined;
 
     dID : number | undefined;
 
-    miniDep : string | undefined;
+    miniDepName : string | undefined;
 
     mdID : number | undefined;
 

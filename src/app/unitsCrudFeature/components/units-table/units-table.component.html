@@ -7,15 +7,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="bg-white">
+        <tr class="bg-white" *ngFor="let unit of units">
             <td class="p-3"> 
-                <p class="text-black text-center font-medium">Units One</p>
+                <p class="text-black text-center font-medium">{{unit.name}}</p>
             </td>
             <td class="p-3 text-center text-black">
-                Space
+                {{unit.unit_type}}
             </td>
             <td class="p-3 font-bold text-center">
-               <a class="hover:underline cursor-pointer">click to see unit childrens</a>
+               <a class="hover:underline cursor-pointer" routerLink="['/dashboard/units/',unit.unit_type,unit.id]">click to see unit childrens</a>
             </td>
             
 
