@@ -5,6 +5,7 @@ import { AuthentificationComponent } from './authFeature/pages/authentification/
 import { DashboardMainSectionComponent } from './dashboard-main-section/dashboard-main-section.component';
 import { EmployeesPageComponent } from './employeesCrudFeature/pages/employees-page/employees-page.component';
 import { UnitsPageComponent } from './unitsCrudFeature/pages/units-page/units-page.component';
+import { ChatLandingPageComponent } from './chatFeature/pages/chat-landing-page/chat-landing-page.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -23,6 +24,10 @@ const routes: Routes = [
           path: 'units/:unit/:id',
           component: UnitsPageComponent,
         },
+        {
+          path: 'chat/:unit/:id',
+          component: ChatLandingPageComponent
+        }
   //     {
   //       path: 'preview-doc',
   //       component: DocumentPreviewComponent,

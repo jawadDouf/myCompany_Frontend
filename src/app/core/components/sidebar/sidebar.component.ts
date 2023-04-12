@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UnitsService } from 'src/app/unitsCrudFeature/services/units.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,11 +10,45 @@ import { Component } from '@angular/core';
 export class SidebarComponent {
     
   unitsDropDown:boolean=false;
+  unitsDropDown2:boolean=false;
+  unitsDropDown3:boolean=false;
+  unitsDropDown4:boolean=false;
+
+  idSpaceUser : number = 1; 
+  spaces! : any[];
+
+  constructor(private unitsService : UnitsService,private activatedroute:ActivatedRoute){
+
+  }
 
 
+  ngOnInit(){
+    this.getAllUnits();
+  }
 
 
   showUnitsDropDown(){
     this.unitsDropDown=!this.unitsDropDown;
+  }
+  showUnitsDropDown2(){
+    this.unitsDropDown2=!this.unitsDropDown2;
+  }
+  showUnitsDropDown3(){
+    this.unitsDropDown3=!this.unitsDropDown3;
+  }
+  showUnitsDropDown4(){
+    this.unitsDropDown4=!this.unitsDropDown4;
+  }
+
+  //Get all units of a user
+  getAllUnits(){
+    this.unitsService.getAllSpaces(this.idSpaceUser).subscribe({
+      next : (res : any) => {
+        this.spaces = res;
+        console.log(res);
+      },
+       error:error => (console.log(error))
+      
+    })
   }
 }

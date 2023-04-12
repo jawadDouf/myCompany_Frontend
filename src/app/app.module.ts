@@ -29,6 +29,7 @@ import { EmployeesPageComponent } from './employeesCrudFeature/pages/employees-p
 import { ParagraphComponenetComponent } from './employeesCrudFeature/components/paragraph-componenet/paragraph-componenet.component';
 import { UnitsPageComponent } from './unitsCrudFeature/pages/units-page/units-page.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { ChatLandingPageComponent } from './chatFeature/pages/chat-landing-page/chat-landing-page.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
     LandingPageComponent,
     EmployeesPageComponent,
     UnitsPageComponent,
+    ChatLandingPageComponent,
   ],
   imports: [
     BrowserModule,

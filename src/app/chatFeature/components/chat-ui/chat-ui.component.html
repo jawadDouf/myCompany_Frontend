@@ -18,25 +18,25 @@
                         </div>
 
                         <!-- Messages -->
-                        <div class="flex-1 overflow-auto" style="background-color: rgb(81, 81, 81)">
-                            <div class="py-2 px-3">
-                                <div class="flex mb-2">
-                                    <div class="rounded py-2 px-3" style="background-color: #F2F2F2">
+                        <div class="flex-1" style="background-color: rgb(81, 81, 81)">
+                            <div class="py-2 px-3" *ngFor="let m of groupMessages">
+                                 <!-- <div class="flex mb-2" >
+                                    <div class="rounded py-2 px-3" >
                                         <p class="text-sm text-teal">
                                             Sylverter Stallone
                                         </p>
                                         <p class="text-sm mt-1">
-                                            He is. Just invited him to join.
+                                            {{ m.message }}.
                                         </p>
                                         <p class="text-right text-xs text-grey-dark mt-1">
                                             12:45 pm
                                         </p>
                                     </div>
-                                </div>
-
-                                <div class="flex items-end mb-2 flex flex-col">
-                                    <div class="rounded py-2 px-3 mt-3" *ngFor="let m of receivedMessages" style="background-color: #E2F7CB">
-                                        <p class="text-sm mt-1 " >
+                                </div> -->
+                                
+                                <div [ngClass]="[ m.senderId == 1 ? 'flex items-end mb-2 flex-col  bg-[#E2F7CB] w-fit ml-auto' : 'flex mb-2bg-[#F2F2F2]  w-fit']" >
+                                    <div class="rounded py-2 px-3 mt-3" >
+                                        <p class="text-sm mt-1" >
                                             {{ m.message }}
                                         </p>
                                         <p class="text-right text-xs text-grey-dark mt-1">

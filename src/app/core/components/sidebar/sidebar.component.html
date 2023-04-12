@@ -20,8 +20,8 @@
               
             </a>
           </li>
-          <li (click)="showUnitsDropDown()">
-            <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+          <li (click)="showUnitsDropDown()" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
+            
               <span class="inline-flex justify-center items-center ml-4">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
@@ -40,39 +40,120 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </span>
-            </a>
+            
           </li>
           <li *ngIf="unitsDropDown">  
-               <div class="ml-12 flex flex-row gap-x-2 ">
+              <div  (click)="showUnitsDropDown2()">
+                <a [routerLink]="['/dashboard/chat/SPACE/',spaces[0].id]" class="ml-10 pl-2 flex flex-row gap-x-2 text-white hover:bg-gray-50 hover:text-gray-800 py-2 mr-1">
                 <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  text-white ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  ">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
                     </svg>                      
                 </span>
                 <span>
-                    <p class="text-white text-sm py-1 ">Space</p>
+                    <p class="text-sm py-1">{{ spaces[0].name }}</p>
                 </span>
+                <span class="ml-10 mt-1" aria-hidden="true">
+                  <!-- active class 'rotate-180' -->
+                  <svg
+                    class="w-5 h-5 transition-transform transform"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </a>
                </div> 
-               <div class="ml-12 flex flex-row gap-x-2 ">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  text-white ">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
-                    </svg>                      
-                </span>
-                <span>
-                    <p class="text-white text-sm py-1 ">Space</p>
-                </span>
-               </div> 
-               <div class="ml-12 flex flex-row gap-x-2 ">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  text-white ">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
-                    </svg>                      
-                </span>
-                <span>
-                    <p class="text-white text-sm py-1 ">Space</p>
-                </span>
-               </div>    
+               <div *ngIf="unitsDropDown2">
+                 <div  class="flex flex-col"  *ngFor="let profession of spaces[0].professions" (click)="showUnitsDropDown3()">
+                  
+                  <a [routerLink]="['/dashboard/chat/PROFESSION/',profession.id]" class="ml-10 pl-2 flex flex-row gap-x-2 text-white hover:bg-gray-50 hover:text-gray-800 py-2 mr-1">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  ">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                        </svg>                      
+                    </span>
+                    <span>
+                        <p class="text-sm py-1">{{ profession.name }}</p>
+                    </span>
+                    <span class="pr-5 mt-1" aria-hidden="true">
+                      <!-- active class 'rotate-180' -->
+                      <svg
+                        class="w-5 h-5 transition-transform transform"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </a>
+                  
+                  <div *ngIf="unitsDropDown3">
+                  <div class="flex flex-col" *ngFor="let departement of profession.departements" (click)="showUnitsDropDown4()">      
+                    <a [routerLink]="['/dashboard/chat/DEPARTEMENT/',departement.id]" class="ml-10 pl-2 flex flex-row gap-x-2 text-white hover:bg-gray-50 hover:text-gray-800 py-2 mr-1">
+                          <span>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6  ">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                              </svg>                      
+                          </span>
+                          <span>
+                              <p class="text-sm py-1">{{ departement.name }}</p>
+                          </span>
+                          <span class="pr-5 mt-1" aria-hidden="true">
+                            <!-- active class 'rotate-180' -->
+                            <svg
+                              class="w-5 h-5 transition-transform transform"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </span>
+                    </a>
+                  
+                       <div *ngIf="unitsDropDown4">
+                        <div *ngFor="let minideps of departement.miniDeps">
+                           <a [routerLink]="['/dashboard/chat/MINIDEPS/',minideps.id]" class="ml-10 pl-2 flex flex-row gap-x-2 text-white hover:bg-gray-50 hover:text-gray-800 py-2 mr-1" >
+                              <span>
+                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 ">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                                  </svg>                      
+                              </span>
+                              <span>
+                                  <p class="text-sm py-1">{{ minideps.name }}</p>
+                              </span>
+                              <span class="pr-5 mt-1" aria-hidden="true">
+                                <!-- active class 'rotate-180' -->
+                                <svg
+                                  class="w-5 h-5 transition-transform transform"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                              </span>
+                          </a>
+                        </div>
+                      
+                        </div>  
+                </div>
+                      </div> 
+                   
+                </div> 
+                
+               </div>
+              
+               
+                   
           </li>
           <li>
             <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-white hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
