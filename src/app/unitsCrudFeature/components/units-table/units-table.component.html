@@ -9,7 +9,7 @@
     <tbody>
         <tr class="bg-white" *ngFor="let unit of units">
             <td class="p-3"> 
-                <p class="text-black text-center font-medium">{{unit.name}}</p>
+                <p class="text-black text-center font-medium hover:underline cursor-pointer" [routerLink]="'/dashboard/employees/'+unit.unit_type+ '/' + unit.id">{{unit.name}}</p>
             </td>
             <td class="p-3 text-center text-black">
                 {{unit.unit_type}}

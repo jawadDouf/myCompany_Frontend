@@ -5,6 +5,7 @@ import { SocketsService } from '../../services/sockets.service';
 import { Unit } from 'src/app/unitsCrudFeature/models/Unit';
 import { ChatServiceService } from '../../services/chat-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { ChatGroup } from '../../models/ChatGroup';
 
 @Component({
   selector: 'app-chat-ui',
@@ -19,10 +20,16 @@ export class ChatUiComponent {
 
   messageBody : string = "";
 
+  chatGroup! : ChatGroup;
+
   //  id:number =;
   //  unitType : string | undefined;
 
   groupMessages! : TextMessage[];
+
+  unitId!:string;
+  unitType!:string;
+  
   
   // @ts-ignore, to suppress warning related to being undefined
   private topicSubscription: Subscription;
@@ -30,15 +37,24 @@ export class ChatUiComponent {
   constructor(private rxStompService: SocketsService,private chatService : ChatServiceService,public activatedroute:ActivatedRoute) {}
 
   ngOnInit() {
-    this.topicSubscription = this.rxStompService
-      .watch('/topic/public/'+ this.activatedroute.snapshot.paramMap.get("id")+this.activatedroute.snapshot.paramMap.get("unit"))
+
+    this.activatedroute.params.subscribe(params => {
+      this.unitId = params['id'];
+      this.unitType = params['unit'];
+      this.getGroupChatMessages(params['unit'],params['id']);
+      this.getChatGroup(params['unit'],params['id']);
+      this.topicSubscription = this.rxStompService
+      .watch('/topic/public/'+ this.unitId+this.unitType)
       .subscribe((tm2:Message) : void => {
         this.textMessage = JSON.parse(tm2.body);
         console.log(tm2.body);
         this.groupMessages.push(this.textMessage);
       });
-
-      this.getGroupChatMessages();
+    })
+    
+    
+      
+    
 
   }
 
@@ -46,8 +62,8 @@ export class ChatUiComponent {
     this.topicSubscription.unsubscribe();
   }
 
-  getGroupChatMessages(){
-     this.chatService.getChatGroupMessages(parseInt(this.activatedroute.snapshot.paramMap.get("id")!) ,this.activatedroute.snapshot.paramMap.get("unit")!).subscribe({
+  getGroupChatMessages(unitType:string,id:string){
+     this.chatService.getChatGroupMessages(parseInt(id),unitType).subscribe({
       next : (res : TextMessage[]) => {
         this.groupMessages = res;  
         console.log(this.groupMessages);
@@ -56,8 +72,18 @@ export class ChatUiComponent {
      })
   }
 
-  onSendMessage() {
-    this.rxStompService.publish({ destination: '/app/sending/'+ this.activatedroute.snapshot.paramMap.get("id")+this.activatedroute.snapshot.paramMap.get("unit"),body:JSON.stringify({message:this.messageBody,senderId:1,chatGroupId:1})});
+  onSendMessage() {    
+    this.rxStompService.publish({ destination: '/app/sending/'+ this.unitId+this.unitType,body:JSON.stringify({message:this.messageBody,senderId:1,chatGroupId:this.chatGroup.id})});
     this.messageBody = "";
+  }
+
+  getChatGroup(unitType:string,id:string){
+    this.chatService.getChatGroup(parseInt(id),unitType).subscribe({
+      next : (res : ChatGroup) => {
+        this.chatGroup = res;  
+        console.log(this.chatGroup);
+      },
+      error:error => (console.log(error))
+     })
   }
 }
