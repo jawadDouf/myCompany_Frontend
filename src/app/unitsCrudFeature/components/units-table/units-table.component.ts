@@ -13,6 +13,9 @@ export class UnitsTableComponent {
 
   units! : Unit[];
   
+  minidepcond : boolean = true;
+
+  
   constructor(private unitsService : UnitsService,private activatedroute:ActivatedRoute){
 
   }
@@ -20,15 +23,24 @@ export class UnitsTableComponent {
 
   ngOnInit(){
 
-    this.getAllUnits();
+    
+    this.activatedroute.params.subscribe(params => {
+         this.getAllUnits(params['unit'],params['id']);
+         if(params['unit']=="DEPARTEMENT"){
+          this.minidepcond = false;
+         }else{
+          this.minidepcond = true;
+         }
+    })
+
+    
 
   }
 
-
   // get all the required units 
-  getAllUnits(){
-    if(this.activatedroute.snapshot.paramMap.get("unit")! == "SPACE"){
-      this.unitsService.getAllSpaces(parseInt(this.activatedroute.snapshot.paramMap.get("id")!)).subscribe({
+  getAllUnits(unitType:string,id:string){
+    if(unitType! == "ISPACE"){
+      this.unitsService.getAllSpaces(parseInt(id)).subscribe({
         next : (res : Unit[]) => {
           this.units = res;
           this.units.forEach((unit : Unit) => {
@@ -38,8 +50,8 @@ export class UnitsTableComponent {
          error:error => (console.log(error))
         
       })
-    }else if(this.activatedroute.snapshot.paramMap.get("unit")! == "PROFESSION"){
-      this.unitsService.getAllProfessions(parseInt(this.activatedroute.snapshot.paramMap.get("id")!)).subscribe({
+    }else if(unitType! == "SPACE"){
+      this.unitsService.getAllProfessions(parseInt(id)).subscribe({
         next : (res : Unit[]) => {
           this.units = res;
           this.units.forEach((unit : Unit) => {
@@ -51,8 +63,8 @@ export class UnitsTableComponent {
          error:error => (console.log(error))
         
       })
-    }else if(this.activatedroute.snapshot.paramMap.get("unit")! == "DEPARTEMENT"){
-      this.unitsService.getAllDepartements(parseInt(this.activatedroute.snapshot.paramMap.get("id")!)).subscribe({
+    }else if(unitType! == "PROFESSION"){
+      this.unitsService.getAllDepartements(parseInt(id)).subscribe({
         next : (res : Unit[]) => {
           this.units = res;
           this.units.forEach((unit : Unit) => {
@@ -62,8 +74,8 @@ export class UnitsTableComponent {
          error:error => (console.log(error))
         
       })
-    }else if(this.activatedroute.snapshot.paramMap.get("unit")! == "MinDep"){
-      this.unitsService.getAllMineDeps(parseInt(this.activatedroute.snapshot.paramMap.get("id")!)).subscribe({
+    }else if(unitType! == "DEPARTEMENT"){
+      this.unitsService.getAllMineDeps(parseInt(id)).subscribe({
         next : (res : Unit[]) => {
           this.units = res;
           this.units.forEach((unit : Unit) => {
@@ -73,6 +85,7 @@ export class UnitsTableComponent {
         },
          error:error => (console.log(error))   
       })
+      
     }
   }
 

@@ -3,7 +3,7 @@
         <tr>
             <th class="p-3">Unit Name</th>
             <th class="p-3">Type</th>
-            <th class="p-3">Unit Children</th>
+            <th *ngIf="minidepcond" class="p-3">Unit Children</th>
         </tr>
     </thead>
     <tbody>
@@ -14,8 +14,8 @@
             <td class="p-3 text-center text-black">
                 {{unit.unit_type}}
             </td>
-            <td class="p-3 font-bold text-center">
-               <a class="hover:underline cursor-pointer" routerLink="['/dashboard/units/']" [queryParams]="{id: unit.id, unit: unit.unit_type}">click to see unit childrens</a>
+            <td *ngIf="minidepcond" class="p-3 font-bold text-center">
+               <a class="hover:underline cursor-pointer" [routerLink]="'/dashboard/units/'+unit.unit_type+ '/' + unit.id">click to see unit childrens</a>
             </td>
         </tr>
         

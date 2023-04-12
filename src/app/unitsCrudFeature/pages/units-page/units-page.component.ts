@@ -9,7 +9,7 @@ import { Filter } from 'src/app/shared/models/Filter';
 export class UnitsPageComponent {
 
   filter : Filter = {
-    categories: ["Unit Name","Type"],
+    categories: ["Unit Name"],
     valueToSearchFor: "",
     valueToSortFrom: undefined
   }  
