@@ -11,7 +11,7 @@ import { ItsFreeComponent } from './homepage/its-free/its-free.component';
 
 import { LoginComponent } from './authFeature/componenets/login/login.component';
 import { RegisterComponent } from './authFeature/componenets/register/register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardNavComponent } from './dashboard-nav/dashboard-nav.component';
 import { DashboardMainSectionComponent } from './dashboard-main-section/dashboard-main-section.component';
@@ -30,6 +30,8 @@ import { ParagraphComponenetComponent } from './employeesCrudFeature/components/
 import { UnitsPageComponent } from './unitsCrudFeature/pages/units-page/units-page.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { ChatLandingPageComponent } from './chatFeature/pages/chat-landing-page/chat-landing-page.component';
+import { ManagementLandingPageComponent } from './companyManagement/pages/management-landing-page/management-landing-page.component';
+
 
 @NgModule({
   declarations: [
@@ -54,12 +56,15 @@ import { ChatLandingPageComponent } from './chatFeature/pages/chat-landing-page/
     EmployeesPageComponent,
     UnitsPageComponent,
     ChatLandingPageComponent,
+    ManagementLandingPageComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

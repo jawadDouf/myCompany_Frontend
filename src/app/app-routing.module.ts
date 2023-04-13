@@ -6,6 +6,7 @@ import { DashboardMainSectionComponent } from './dashboard-main-section/dashboar
 import { EmployeesPageComponent } from './employeesCrudFeature/pages/employees-page/employees-page.component';
 import { UnitsPageComponent } from './unitsCrudFeature/pages/units-page/units-page.component';
 import { ChatLandingPageComponent } from './chatFeature/pages/chat-landing-page/chat-landing-page.component';
+import { ManagementLandingPageComponent } from './companyManagement/pages/management-landing-page/management-landing-page.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -27,6 +28,20 @@ const routes: Routes = [
         {
           path: 'chat/:unit/:id',
           component: ChatLandingPageComponent
+        },
+        {
+          path:'management',
+          component:ManagementLandingPageComponent,
+          children: [
+            {
+              path: 'employees/:unit/:id',
+              component: EmployeesPageComponent,
+            },
+            {
+              path: 'units/:unit/:id',
+              component: UnitsPageComponent,
+            },
+          ]
         }
   //     {
   //       path: 'preview-doc',

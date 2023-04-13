@@ -32,4 +32,23 @@ export class UnitsService {
     return this.http.get<Unit[]>(this.baseUrl + "miniDeps/"+id);
   }
 
+  //add space to the database
+  addSpace(unit:Unit){
+     this.http.post<any>(this.baseUrl + "space",unit);
+      } 
+
+  //add profession to the database
+  addProfession(unit:Unit){
+    this.http.post<any>(this.baseUrl + "profession",unit);
+  }
+  //add departement to the database
+  addDepartement(unit:Unit){
+    this.http.post<any>(this.baseUrl + "departement",unit);
+  }
+
+  //add miniDeps to the database
+  addMiniDep(unit:Unit){
+    this.http.post<any>(this.baseUrl + "miniDeps",unit);
+  }
+
 }
