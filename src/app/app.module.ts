@@ -31,6 +31,7 @@ import { UnitsPageComponent } from './unitsCrudFeature/pages/units-page/units-pa
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { ChatLandingPageComponent } from './chatFeature/pages/chat-landing-page/chat-landing-page.component';
 import { ManagementLandingPageComponent } from './companyManagement/pages/management-landing-page/management-landing-page.component';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 
 @NgModule({
@@ -71,6 +72,11 @@ import { ManagementLandingPageComponent } from './companyManagement/pages/manage
       provide: SocketsService,
       useFactory: rxStompServiceFactory,
     },
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

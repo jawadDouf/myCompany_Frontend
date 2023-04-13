@@ -10,15 +10,20 @@
           <small class="text-gray-400">Welcome back! Please enter your details</small>
   
           <!-- Form -->
-          <form class="mt-4">
+          <form class="mt-4" [formGroup]="loginForm" (ngSubmit)="signin()">
             <div class="mb-3">
               <label class="mb-2 block text-xs font-semibold">Email</label>
-              <input type="email" placeholder="Enter your email" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="email"/>
+              <input type="email" placeholder="Enter your email" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="email" formControlName="email"/>
+              <span for="email" *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)" class="mb-1 text-xs sm:text-sm tracking-wide text-red-600 italic">Entrer votre email</span>
             </div>
   
             <div class="mb-3">
               <label class="mb-2 block text-xs font-semibold">Password</label>
-              <input type="password" placeholder="*****" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="password" />
+              <input type="password" placeholder="*****" class="block w-full rounded-md border border-gray-300 focus:border-purple-700 focus:outline-none focus:ring-1 focus:ring-purple-700 py-1 px-1.5 text-gray-500" name="password" formControlName="password"/>
+              <div class="mb-1 text-xs sm:text-sm tracking-wide text-red-600 italic" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+                <span *ngIf="loginForm.get('password')?.getError('required')">Le mot de passe est obligatoire</span>
+                <span *ngIf="loginForm.get('password')?.getError('minlength')">Le mot de passe doit contenir au moins 6 caractères</span>
+              </div>
             </div>
 
             <div class="mb-3 flex flex-wrap content-center">
@@ -27,7 +32,7 @@
         </div>
   
             <div class="mb-3">
-              <button type="submit" class="mb-1.5 block w-full  text-center text-white bg-gradient-to-b from-blue-500 to-blue-600 hover:bg-purple-900 px-2 py-1.5 rounded-md" >Sign in</button>
+              <button type="submit"  class="mb-1.5 block w-full  text-center text-white bg-gradient-to-b from-blue-500 to-blue-600 hover:bg-purple-900 px-2 py-1.5 rounded-md" >Sign in</button>
             </div>
           </form>
   

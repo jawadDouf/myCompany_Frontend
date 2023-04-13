@@ -33,9 +33,7 @@
                     <td class="p-2 font-bold hover:underline cursor-pointer hover:font-extrabold">
                         {{employee.miniDepName}}
                     </td>
-                    <td class="p-2">
-                        <span class="bg-green-400 text-gray-50 rounded-md px-2">available</span>
-                    </td>
+                    
                     <td *ngIf="managementCond">
                     </td>
                     
@@ -48,36 +46,36 @@
         </div>
         <div *ngIf="formAddUnit" class="py-3 fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-80 cursor-pointer">
             <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-                <div class="relative px-4 py-5 bg-white shadow-lg sm:rounded-3xl">
-                  <div class="max-w-md mx-auto">
+                <div class="relative px-4 py-8 bg-white shadow-lg sm:rounded-3xl">
+                  <div class=" mx-auto py-5">
                     <div>
                       <h1 class="text-2xl font-semibold text-center">Create a new employee</h1>
                     </div>
-                    <form class="divide-y divide-gray-200" [formGroup]="form">
+                    <form class="divide-y divide-gray-200" [formGroup]="registerForm" (ngSubmit)="register()">
                       <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                         <div class="flex justify-between w-full">
-                        <div class="relative w-[45%]">
-                          <input autocomplete="off" id="fName" name="fName" type="text" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="first name" />
+                        <div class="relative w-[48%]">
+                          <input autocomplete="off" id="fName" name="fName" type="text" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="first name" formControlName="fName"/>
                           <label for="fName" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">First name</label>
                         </div>
-                        <div class="relative w-[45%]">
-                          <input autocomplete="off" id="lName" name="lName" type="text" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Last name" />
+                        <div class="relative w-[48%]">
+                          <input autocomplete="off" id="lName" name="lName" type="text" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Last name" formControlName="lName"/>
                           <label for="lName" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Last name</label>
                         </div>
                         </div>
                         <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                         <div class="flex justify-between w-full">
-                          <div class="relative w-[45%]">
-                          <input autocomplete="off" id="email" name="email" type="text" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
+                          <div class="relative w-[48%]">
+                          <input autocomplete="off" id="email" name="email" type="text" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" formControlName="email"/>
                           <label for="email" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email Adresse</label>
                         </div>
-                        <div class="relative w-[45%]">
-                          <input autocomplete="off" id="password" name="password" type="text" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="password" />
+                        <div class="relative w-[48%]">
+                          <input autocomplete="off" id="password" name="password" type="text" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="password" formControlName="password"/>
                           <label for="password" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
                         </div>
                         </div>
                         <div class="flex justify-between w-full">
-                          <div class="relative  w-[45%]">
+                          <div class="relative  w-[48%]">
                           <label for="spaces" class=" text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Space</label>
                           <select name="spaces" id="spaces" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 pl-2 text-gray-900 focus:outline-none focus:borer-rose-600"
                           formControlName="inputValue"
@@ -85,9 +83,9 @@
                           <option class="pl-2"  *ngFor="let unit of spaces" value="unit.name">{{unit.name}}</option>
                           </select>
                         </div>
-                        <div class="relative w-[45%]">
+                        <div class="relative w-[48%]">
                           <label for="profession" class=" text-gray-600 text-sm peer-placeholder-shown:text-base pl-2 peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Profession</label>
-                          <select name="profession" id="profession" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                          <select name="profession" id="profession" class="peer placeholder-transparent pl-2 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                           formControlName="inputValue2"
                           >
                           <option  *ngFor="let unit of units2" value="{{units2.indexOf(unit)}}">{{unit.name}}</option>
@@ -95,29 +93,27 @@
                         </div>
                         </div>
                         <div class="flex justify-between w-full">
-                          <div class="relative  w-[45%]">
+                          <div class="relative  w-[48%]">
                           <label for="departements" class=" text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Departement</label>
-                          <select name="departements" id="departements" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                          <select name="departements" id="departements" class="peer pl-2 placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                           formControlName="inputValue3"
                           >
                           <option  *ngFor="let unit of units3" value="{{units3.indexOf(unit)}}">{{unit.name}}</option>
                           </select>
                         </div>
-                        <div class="relative w-[45%]">
+                        <div class="relative w-[48%]">
                           <label for="miniDeps" class=" text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">MiniDep</label>
-                          <select name="miniDeps" id="miniDeps" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
+                          <select name="miniDeps" id="miniDeps" class="peer placeholder-transparent pl-2 h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                           formControlName="inputValue4"
                           >
-                            <option  *ngFor="let unit of units4" value="unit.name">{{unit.name}}</option>
+                            <option  *ngFor="let unit of units4" value="{{units4.indexOf(unit)}}">{{unit.name}}</option>
                           </select>
                         </div>
-                        </div>
-                       
-                      
-                        
-                        <div class="relative">
-                          <button class="bg-blue-500 text-white rounded-md px-5 py-1">Create new employee</button>
-                        </div>
+                        </div> 
+                        <div class="relative flex flex-col">
+                            <button class="bg-blue-500 text-white rounded-md px-5 py-1 mt-2">Create new employee</button>
+                            <a (click)="switchAppearance()" class="cursor-pointer hover:underline text-center text-sm text-blue-500">out</a>
+                          </div>
                       </div>
                     </div>
                   </form>

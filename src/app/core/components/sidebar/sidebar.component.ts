@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UnitsService } from 'src/app/unitsCrudFeature/services/units.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class SidebarComponent {
   idSpaceUser : number = 1; 
   spaces! : any[];
 
-  constructor(private unitsService : UnitsService,private activatedroute:ActivatedRoute){
+  constructor(private unitsService : UnitsService,private activatedroute:ActivatedRoute,private router : Router){
 
   }
 
@@ -50,5 +50,10 @@ export class SidebarComponent {
        error:error => (console.log(error))
       
     })
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl('/home');
   }
 }

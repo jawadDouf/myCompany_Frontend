@@ -4,8 +4,10 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Employee } from '../../models/Employee';
 import { filter } from 'rxjs';
 import { UnitsService } from 'src/app/unitsCrudFeature/services/units.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Unit } from 'src/app/unitsCrudFeature/models/Unit';
+import { AuthService } from 'src/app/authFeature/services/auth.service';
+import { User } from 'src/app/authFeature/model/User';
 
 @Component({
   selector: 'app-employees-table',
@@ -28,6 +30,16 @@ export class EmployeesTableComponent {
   inputValue3 = "";
   inputValue4 = "";
 
+  spaceName = "MyCompany2";
+  professionName! :string;
+  departementName! : string;
+  miniDepName! : string;
+
+  spaceId! : number;
+  professionId! : number;
+  departementId! : number;
+  miniDepId! : number;
+
   units1!:Unit[];
   units2!:Unit[];
   units3!:Unit[];
@@ -35,15 +47,30 @@ export class EmployeesTableComponent {
 
   spaces! : any[];
 
-  selectedIndexPro:any |undefined;
-  
+  employee: User | undefined ;
 
-  constructor(private empService: EmployeesService,private activatedroute:ActivatedRoute,private router : Router,private unitsService : UnitsService,private formBuilder: FormBuilder){ 
+  selectedIndexPro:any |undefined;
+  selectedIndexDep:any |undefined;
+  
+  registerForm = new FormGroup({
+    fName: new FormControl(),
+    lName: new FormControl(),
+    email: new FormControl(),
+    password: new FormControl(),
+    inputValue: new FormControl(),
+    inputValue2: new FormControl(),
+    inputValue3: new FormControl(),
+    inputValue4: new FormControl(),
+
+  })
+
+  constructor(private empService: EmployeesService,private activatedroute:ActivatedRoute,private router : Router,private unitsService : UnitsService,private formBuilder: FormBuilder,private auth:AuthService){ 
   }
 
 
   ngOnInit(){
     this.getEmployeesOfAUnit();
+    
 
     this.activatedroute.params.subscribe(params => {
       if(this.router.url.split('/')[2]=='management'){
@@ -54,24 +81,37 @@ export class EmployeesTableComponent {
  })
 
  this.getAllUnits2();
+ 
 
- this.form = this.formBuilder.group({
-  inputValue: '',
-  inputValue2: '',
-  inputValue3: '',
-  inputValue4: '',
-});
-
-this.form.get('inputValue2')?.valueChanges.subscribe(value => {
+this.registerForm.get('inputValue2')?.valueChanges.subscribe(value => {
     this.units3 = this.spaces[0].professions[parseInt(value)].departements;
     this.selectedIndexPro = value;
     
+    
 });
 
-this.form.get('inputValue3')?.valueChanges.subscribe(value => {
+this.registerForm.get('inputValue3')?.valueChanges.subscribe(value => {
   this.units4 = this.spaces[0].professions[parseInt(this.selectedIndexPro)].departements[parseInt(value)].miniDeps;
-  
+  this.professionId = this.spaces[0].professions[parseInt(this.selectedIndexPro)].id;
+  this.professionName = this.spaces[0].professions[parseInt(this.selectedIndexPro)].name;
+  this.departementId = this.spaces[0].professions[parseInt(this.selectedIndexPro)].departements
+  [parseInt(value)].id;
+  this.departementName = this.spaces[0].professions[parseInt(this.selectedIndexPro)].departements
+  [parseInt(value)].name;
+  console.log("x",this.departementId); 
+  this.selectedIndexDep = parseInt(value);
 });
+
+this.registerForm.get('inputValue4')?.valueChanges.subscribe(value => {
+  this.miniDepId = this.spaces[0].professions[parseInt(this.selectedIndexPro)].departements
+  [this.selectedIndexDep].miniDeps[parseInt(value)].id;
+  this.miniDepName = this.spaces[0].professions[parseInt(this.selectedIndexPro)].departements
+  [this.selectedIndexDep].miniDeps[parseInt(value)].name;
+  
+  console.log(this.departementId);
+});
+
+  
   }
 
   // Get employees of a unit
@@ -103,5 +143,23 @@ this.form.get('inputValue3')?.valueChanges.subscribe(value => {
        error:error => (console.log(error))
       
     })
+  }
+
+  register(){
+    console.log(this.departementName);
+    console.log(this.spaceName);
+    console.log(this.professionName);
+    console.log(this.miniDepName);
+
+    
+    
+    this.auth.register(this.registerForm.value.fName,this.registerForm.value.lName,this.registerForm.value.email,this.registerForm.value.password,this.spaceName,1,this.professionName,this.professionId,this.departementName,this.departementId,this.miniDepName,this.miniDepId).subscribe({
+      next:(data:any) => {
+        console.log(data);
+      },
+      error: error => (console.log(error))
+
+    })
+    this.registerForm.reset();
   }
 }
