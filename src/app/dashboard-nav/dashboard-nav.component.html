@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li >
-                <a class="flex flex-row gap-x-3 p-4 items-center hover:bg-gray-50 cursor-pointer border-r"  [routerLink]="['/dashboard/units/ISPACE/',1]"
+                <a class="flex flex-row gap-x-3 p-4 items-center hover:bg-gray-50 cursor-pointer border-r"  (click)="redirectToUnits()"
                  routerLinkActive="bg-gray-100">
                 <span class="inline-flex justify-center items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

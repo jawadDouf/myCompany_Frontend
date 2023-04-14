@@ -118,7 +118,11 @@ this.registerForm.get('inputValue4')?.valueChanges.subscribe(value => {
   getEmployeesOfAUnit(){
     this.empService.getUnitEmployees(parseInt(this.activatedroute.snapshot.paramMap.get("id")!),this.activatedroute.snapshot.paramMap.get("unit")!).subscribe({
       next : (res : Employee[]) => {
+        console.log(res);
+        
         this.employees = res;
+        console.log(this.employees);
+        
       },
       error:error => (console.log(error))
     })

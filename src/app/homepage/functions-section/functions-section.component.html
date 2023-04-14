@@ -10,35 +10,29 @@
       <div class="mt-16 grid grid-cols-1 items-center gap-y-2 pt-10 sm:gap-y-6 md:mt-20 lg:grid-cols-12 lg:pt-0">
         <div class="-mx-4 flex overflow-x-auto pb-4 sm:mx-2 lg:col-span-5 lg:overflow-visible lg:pb-0">
           <div class="relative z-10 flex gap-x-4 whitespace-nowrap px-4 sm:mx-auto sm:px-0 lg:mx-0 lg:block lg:gap-x-0 lg:gap-y-1 lg:whitespace-normal">
-            <div class="group relative rounded-full py-1 px-4 hover:bg-white/10 lg:rounded-r-none lg:rounded-l-xl lg:p-6 lg:hover:bg-white/5">
+            <div (click)="changeCond1()" class="group relative rounded-full py-1 px-4 hover:bg-white/10 lg:rounded-r-none lg:rounded-l-xl lg:p-6 lg:hover:bg-white/5">
               <h3>
                 <button class="font-display text-lg text-blue-100 hover:text-white lg:text-white" type="button"><span class="absolute inset-0 rounded-full lg:rounded-r-none lg:rounded-l-xl"></span>Create &amp; Organise your workspace</button>
               </h3>
               <p class="mt-2 hidden text-sm text-blue-100 group-hover:text-white lg:block">Create &amp; Organise your workspace units on our website.</p>
             </div>
-            <div [ngStyle]="{'background-color': (imageCondition) ? 'rgba(166, 176, 214, 0.26)' : 'white'}" class="group relative rounded-full py-1 px-4 lg:rounded-r-none lg:rounded-l-xl lg:p-6 lg:ring-1 lg:ring-inset lg:ring-white/10">
+            <div (click)="changeCond2()" class="group relative rounded-full py-1 px-4 lg:rounded-r-none lg:rounded-l-xl lg:p-6 lg:ring-1 lg:ring-inset lg:ring-white/10">
               <h3>
                 <button class="font-display text-lg text-blue-600 lg:text-white" type="button"><span class="absolute inset-0 rounded-full lg:rounded-r-none lg:rounded-l-xl"></span>Chat envirenement</button>
               </h3>
               <p class="mt-2 hidden text-sm text-white lg:block">Your employees could communicate and talk to each other</p>
             </div>
-            <div class="group relative rounded-full py-1 px-4 hover:bg-white/10 lg:rounded-r-none lg:rounded-l-xl lg:p-6 lg:hover:bg-white/5">
+            <div (click)="changeCond3()" class="group relative rounded-full py-1 px-4 hover:bg-white/10 lg:rounded-r-none lg:rounded-l-xl lg:p-6 lg:hover:bg-white/5">
               <h3>
-                <button class="font-display text-lg text-blue-100 hover:text-white lg:text-white" id="headlessui-tabs-tab-:r7:" role="tab" type="button"><span class="absolute inset-0 rounded-full lg:rounded-r-none lg:rounded-l-xl"></span>Schedule social media posts</button>
+                <button class="font-display text-lg text-blue-100 hover:text-white lg:text-white" id="headlessui-tabs-tab-:r7:" role="tab" type="button"><span class="absolute inset-0 rounded-full lg:rounded-r-none lg:rounded-l-xl"></span>informations about your ressources</button>
               </h3>
-              <p class="mt-2 hidden text-sm text-blue-100 group-hover:text-white lg:block">Collaborate &amp; schedule social media posts directly in Notion.</p>
+              <p class="mt-2 hidden text-sm text-blue-100 group-hover:text-white lg:block">Get all the informations available of your employees.</p>
             </div>
-            <div class="group relative rounded-full py-1 px-4 hover:bg-white/10 lg:rounded-r-none lg:rounded-l-xl lg:p-6 lg:hover:bg-white/5">
+            <div (click)="changeCond3()" class="group relative rounded-full py-1 px-4 hover:bg-white/10 lg:rounded-r-none lg:rounded-l-xl lg:p-6 lg:hover:bg-white/5">
               <h3>
-                <button class="font-display text-lg text-blue-100 hover:text-white lg:text-white" id="headlessui-tabs-tab-:r8:" role="tab" type="button"><span class="absolute inset-0 rounded-full lg:rounded-r-none lg:rounded-l-xl"></span>Custom themes &amp; fonts</button>
+                <button class="font-display text-lg text-blue-100 hover:text-white lg:text-white" id="headlessui-tabs-tab-:r7:" role="tab" type="button"><span class="absolute inset-0 rounded-full lg:rounded-r-none lg:rounded-l-xl"></span>and Much more</button>
               </h3>
-              <p class="mt-2 hidden text-sm text-blue-100 group-hover:text-white lg:block">Make your Notion pretty with custom themes &amp; fonts.</p>
-            </div>
-            <div class="group relative rounded-full py-1 px-4 hover:bg-white/10 lg:rounded-r-none lg:rounded-l-xl lg:p-6 lg:hover:bg-white/5">
-              <h3>
-                <button class="font-display text-lg text-blue-100 hover:text-white lg:text-white" id="headlessui-tabs-tab-:r9:" role="tab" type="button"><span class="absolute inset-0 rounded-full lg:rounded-r-none lg:rounded-l-xl"></span>Much more…</button>
-              </h3>
-              <p class="mt-2 hidden text-sm text-blue-100 group-hover:text-white lg:block">We have an app platform for developers to easily build more apps. Our app store can only get bigger!</p>
+              <p class="mt-2 hidden text-sm text-blue-100 group-hover:text-white lg:block">...</p>
             </div>
           </div>
         </div>
@@ -50,34 +44,28 @@
             </div>
             <div class="mt-7 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:mt-10 sm:w-auto lg:mt-0 lg:w-[67.8125rem]"><img alt="" sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"  class="w-full" /></div>
           </div>
-          <div style="">
+          <div style="" *ngIf="image1Condition">
             <div class="relative sm:px-6 lg:hidden">
               <div class="absolute -inset-x-4 top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-inset ring-white/10 sm:inset-x-0 sm:rounded-t-xl"></div>
               <p class="relative mx-auto max-w-2xl text-base text-white sm:text-center">Apply a filter to your Notion contacts database view, then send mass emails to filtered contacts in 1-click.</p>
             </div>
-            <div class="mt-7 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:mt-10 sm:w-auto lg:mt-0 lg:w-[67.8125rem]"><img alt="" sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"  width="2356" height="1576" data-nimg="future" class="w-full" /></div>
+            <div class="mt-7 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:mt-10 sm:w-auto lg:mt-0 lg:w-[67.8125rem]"><img alt="" src="../../../assets/image1.png" sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"  width="2356" height="1576" data-nimg="future" class="w-full" /></div>
           </div>
-          <div style="display: none;">
+          <div *ngIf="image2Condition">
             <div class="relative sm:px-6 lg:hidden">
               <div class="absolute -inset-x-4 top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-inset ring-white/10 sm:inset-x-0 sm:rounded-t-xl"></div>
-              <p class="relative mx-auto max-w-2xl text-base text-white sm:text-center">Collaborate &amp; schedule social media posts directly in Notion.</p>
+              <p class="relative mx-auto max-w-2xl text-base text-white sm:text-center">Get all the informations available of your employees.</p>
             </div>
-            <div class="mt-7 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:mt-10 sm:w-auto lg:mt-0 lg:w-[67.8125rem]"><img alt="" sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem" width="2356" height="1576"  class="w-full" /></div>
+            <div class="mt-7 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:mt-10 sm:w-auto lg:mt-0 lg:w-[67.8125rem]"><img alt="" src="../../../assets/Image2.png" sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem" width="2356" height="1576"  class="w-full" /></div>
           </div>
-          <div style="display: none;">
+          <div *ngIf="image3Condition">
             <div class="relative sm:px-6 lg:hidden">
               <div class="absolute -inset-x-4 top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-inset ring-white/10 sm:inset-x-0 sm:rounded-t-xl"></div>
-              <p class="relative mx-auto max-w-2xl text-base text-white sm:text-center">Make your Notion pretty with custom themes &amp; fonts.</p>
+              <p class="relative mx-auto max-w-2xl text-base text-white sm:text-center">Get all the informations available of your employees.</p>
             </div>
-            <div class="mt-7 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:mt-10 sm:w-auto lg:mt-0 lg:w-[67.8125rem]"><img alt="" sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem" /></div>
+            <div class="mt-7 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:mt-10 sm:w-auto lg:mt-0 lg:w-[67.8125rem]"><img alt="" src="../../../assets/Image3.png" sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem" /></div>
           </div>
-          <div style="display: none;">
-            <div class="relative sm:px-6 lg:hidden">
-              <div class="absolute -inset-x-4 top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-inset ring-white/10 sm:inset-x-0 sm:rounded-t-xl"></div>
-              <p class="relative mx-auto max-w-2xl text-base text-white sm:text-center">We have an app platform for developers to easily build more apps. Our app store can only get bigger!</p>
-            </div>
-            <div class="mt-7 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:mt-10 sm:w-auto lg:mt-0 lg:w-[67.8125rem]"><img alt="" sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem" width="2356" height="1576" data-nimg="future" class="w-full" /></div>
-          </div>
+          
         </div>
       </div>
     </div>

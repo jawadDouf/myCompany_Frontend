@@ -7,11 +7,14 @@ import { EmployeesPageComponent } from './employeesCrudFeature/pages/employees-p
 import { UnitsPageComponent } from './unitsCrudFeature/pages/units-page/units-page.component';
 import { ChatLandingPageComponent } from './chatFeature/pages/chat-landing-page/chat-landing-page.component';
 import { ManagementLandingPageComponent } from './companyManagement/pages/management-landing-page/management-landing-page.component';
+import { BeforeAuthGuard } from './core/guards/BeforeAuthGuard';
+import { AfterAuthGuard } from './core/guards/after-auth.guard';
+import { AdminManagementGuard } from './core/guards/admin-management.guard';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'home', component: LandingPageComponent,},
-  { path: 'authentification',component: AuthentificationComponent},
+  { path: 'authentification',component: AuthentificationComponent,canActivate:[AfterAuthGuard]},
   {
      path: 'dashboard',
      component: DashboardMainSectionComponent,
@@ -41,7 +44,7 @@ const routes: Routes = [
               path: 'units/:unit/:id',
               component: UnitsPageComponent,
             },
-          ]
+          ],canActivate:[AdminManagementGuard]
         }
   //     {
   //       path: 'preview-doc',
@@ -49,7 +52,7 @@ const routes: Routes = [
   //     },
   //     { path: 'upload-document', component: UploadDocComponent },
   //     { path: 'collaborator', component: CollaborateursComponent },
-      ]
+      ],canActivate:[BeforeAuthGuard]
       // ,canActivate:[AuthGuard]
    },
 ];

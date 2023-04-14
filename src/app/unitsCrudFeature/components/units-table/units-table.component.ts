@@ -216,14 +216,19 @@ export class UnitsTableComponent {
 
   createUnit(){
 
-    if(this.chosenUnit = "DEPARTEMENT"){
+    console.log("z",this.chosenUnit);
+    
+
+    if(this.chosenUnit == "DEPARTEMENT"){
+      console.log("hereOne");
+      
       this.unitsService.addDepartement(this.form.value.unitName!,this.form.value.description!,this.form.value.inputValue3!,this.form.value.inputValue2!).subscribe({
         next : (res : any) => {
           console.log(res);
         },
          error:error => (console.log(error))
       })
-    }else if(this.chosenUnit = "SPACE"){
+    }else if(this.chosenUnit == "SPACE"){
       this.unitsService.addSpace(this.form.value.unitName!,this.form.value.description!,this.form.value.inputValue3!).subscribe({
         next : (res : any) => {
           console.log(res);
@@ -231,6 +236,7 @@ export class UnitsTableComponent {
          error:error => (console.log(error))
       })
     }else if(this.chosenUnit == "PROFESSION"){
+      console.log("hereTwo");
       this.unitsService.addProfession(this.form.value.unitName!,this.form.value.description!,this.form.value.inputValue3!,this.form.value.inputValue2!).subscribe({
         next : (res : any) => {
           console.log(res);

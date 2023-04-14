@@ -32,6 +32,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { ChatLandingPageComponent } from './chatFeature/pages/chat-landing-page/chat-landing-page.component';
 import { ManagementLandingPageComponent } from './companyManagement/pages/management-landing-page/management-landing-page.component';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
+import { FooterComponent } from './homepage/footer/footer.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
     UnitsPageComponent,
     ChatLandingPageComponent,
     ManagementLandingPageComponent,
+    FooterComponent,
     
   ],
   imports: [

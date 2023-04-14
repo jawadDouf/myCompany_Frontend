@@ -10,17 +10,22 @@ export class TokenService {
   firstName : string | undefined;
 
   lastName :string | undefined;
+  
+  role :string | undefined;
+
 
   set(data:any){
     //Set user informations
     this.employeId = data.employeeId;
     this.firstName = data.firstName;
     this.lastName = data.lastName;
+    this.role = data.role;
     //set the local storage
     localStorage.setItem('token',data.accessToken);
     localStorage.setItem('employeeId',data.employeeId);
     localStorage.setItem('firstName',data.firstName);
     localStorage.setItem('lastName',data.lastName);
+    localStorage.setItem('role',data.role);
   }
 
   handle(data:any){
@@ -33,6 +38,10 @@ export class TokenService {
 
   getEmail(){
     return localStorage.getItem('email');
+  }
+
+  getRole(){
+    return localStorage.getItem('role');
   }
 
   getFirstName(){

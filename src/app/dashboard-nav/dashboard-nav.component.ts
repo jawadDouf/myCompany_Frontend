@@ -26,7 +26,10 @@ export class DashboardNavComponent {
     console.log(this.router.url.split('/')[2]);
     if(this.router.url.split('/')[2]==='chat'){
         this.router.navigate(['/dashboard/employees/'+this.router.url.split('/')[3] + '/'+this.router.url.split('/')[4]])
-    }else{
+    }else if(this.router.url.split('/')[2]==='management'){
+      this.router.navigate(['/dashboard/management/employees/'+this.router.url.split('/')[4] + '/'+this.router.url.split('/')[5]])
+  }
+   else{
       this.router.navigate(['/dashboard/employees/'+this.router.url.split('/')[3] + '/'+this.router.url.split('/')[4]])
     }
   }
@@ -36,6 +39,17 @@ export class DashboardNavComponent {
       this.router.navigate(['/dashboard/chat/'+this.router.url.split('/')[3] + '/'+this.router.url.split('/')[4]])
   }else{
     this.router.navigate(['/dashboard/chat/'+this.router.url.split('/')[3] + '/'+this.router.url.split('/')[4]])
+  }
+  }
+
+  redirectToUnits(){
+    if(this.router.url.split('/')[2]==='management'){
+      this.router.navigate(['/dashboard/management/units/'+this.router.url.split('/')[4] + '/'+this.router.url.split('/')[5]])
+  }else if(this.router.url.split('/')[2]==='chat'){
+    this.router.navigate(['/dashboard/units/'+this.router.url.split('/')[3] + '/'+this.router.url.split('/')[4]])
+  } 
+  else{
+    this.router.navigate(['/dashboard/units/'+this.router.url.split('/')[3] + '/'+this.router.url.split('/')[4]])
   }
   }
   

@@ -20,7 +20,7 @@ export class Employee {
 
     dID : number | undefined;
 
-    miniDepName : string | undefined;
+    miniDepsName : string | undefined;
 
     mdID : number | undefined;
 
