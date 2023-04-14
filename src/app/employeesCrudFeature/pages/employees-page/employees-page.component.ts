@@ -13,9 +13,7 @@ export class EmployeesPageComponent {
     valueToSearchFor: "",
     valueToSortFrom: undefined
   }
-
-  constructor(){
-
-  }
+  
+  constructor(){}
 
 }

@@ -30,5 +30,13 @@ export class DashboardNavComponent {
       this.router.navigate(['/dashboard/employees/'+this.router.url.split('/')[3] + '/'+this.router.url.split('/')[4]])
     }
   }
+
+  redirectToMess(){
+    if(this.router.url.split('/')[2]==='chat'){
+      this.router.navigate(['/dashboard/chat/'+this.router.url.split('/')[3] + '/'+this.router.url.split('/')[4]])
+  }else{
+    this.router.navigate(['/dashboard/chat/'+this.router.url.split('/')[3] + '/'+this.router.url.split('/')[4]])
+  }
+  }
   
 }

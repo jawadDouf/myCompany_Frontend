@@ -7,4 +7,8 @@ export class TextMessage{
     senderId:number | undefined;
 
     chatGroupId:number | undefined;
+
+    lsender:string | undefined;
+
+    fsender:string | undefined;
 }
